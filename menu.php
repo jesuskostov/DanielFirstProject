@@ -1,5 +1,8 @@
 <?php include 'components/nav.php' ?> 
-
+<?php include_once 'php/connection.php' ?>
+<?php
+    $result = $mysqli->query("SELECT * FROM menu") or die($mysqli->error);
+?>
 
         <div class="content-wrapper">
 
@@ -19,7 +22,6 @@
                 </div>
             </div>
 
-
             <section class="service-details-wrap pt-100 pb-100">
                 <div class="container">
                     <div class="row gx-5">
@@ -27,52 +29,23 @@
                             <div class="service-desc">
                              
                                 <div class="row">
-                                   
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="feature-card style1">
-                                            <div class="feature-img">
-                                                <img src="assets/img/feature/feature-item-2.jpg" alt="Image">
-                                            </div>
-                                            <div class="feature-info">
-                                                <h3 class="feature-title"><a href="shop-details.html">Hotdog With Sausage</a>
-                                                </h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit fugit ad nihil similique, nisi dolor. Consequuntur recusandae, quisquam natus quas ex aperiam corrupti impedit dicta, dolor modi delectus voluptas deleniti!</p>
-                                                <div class="feature-meta">
-                                                    <p class="feature-price">30.35$</p>
+                                    <?php while($row = $result->fetch_assoc()): ?>
+                                        <div class="col-lg-4 col-md-4">
+                                            <div class="feature-card style1">
+                                                <div class="feature-img">
+                                                    <img src="./assets/img/products/<?php echo $row['img'] ?>" alt="Image">
+                                                </div>
+                                                <div class="feature-info">
+                                                    <h3 class="feature-title"><a href="shop-details.html"><?php echo $row['title'] ?></a>
+                                                    </h3>
+                                                    <p><?php echo $row['text'] ?></p>
+                                                    <div class="feature-meta">
+                                                        <p class="feature-price"><?php echo $row['price'] ?>лв</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="feature-card style1">
-                                            <div class="feature-img">
-                                                <img src="assets/img/feature/feature-item-2.jpg" alt="Image">
-                                            </div>
-                                            <div class="feature-info">
-                                                <h3 class="feature-title"><a href="shop-details.html">Hotdog With Sausage</a>
-                                                </h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit fugit ad nihil similique, nisi dolor. Consequuntur recusandae, quisquam natus quas ex aperiam corrupti impedit dicta, dolor modi delectus voluptas deleniti!</p>
-                                                <div class="feature-meta">
-                                                    <p class="feature-price">30.35$</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="feature-card style1">
-                                            <div class="feature-img">
-                                                <img src="assets/img/feature/feature-item-2.jpg" alt="Image">
-                                            </div>
-                                            <div class="feature-info">
-                                                <h3 class="feature-title"><a href="shop-details.html">Hotdog With Sausage</a>
-                                                </h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit fugit ad nihil similique, nisi dolor. Consequuntur recusandae, quisquam natus quas ex aperiam corrupti impedit dicta, dolor modi delectus voluptas deleniti!</p>
-                                                <div class="feature-meta">
-                                                    <p class="feature-price">30.35$</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php endwhile ?>
                                 </div>
                              
                             </div>

@@ -1,5 +1,9 @@
 <?php include 'components/nav.php' ?>
-
+<?php include_once 'php/connection.php' ?>
+<?php
+    $result = $mysqli->query("SELECT * FROM about") or die($mysqli->error);
+    $row = $result->fetch_assoc();
+?>
 
 <div class="content-wrapper">
 
@@ -36,31 +40,9 @@
                 <div class="col-lg-6">
                     <div class="about-content">
                         <div class="content-title style2 mb-15">
-                            <span>
-                                <img src="assets/img/secion-shape-1.png" alt="Image">
-                                Our Story
-                                <img src="assets/img/secion-shape-2.png" alt="Image">
-                            </span>
-                            <h2>Примерен текст за нас</h2>
+                            <h2>За нас</h2>
                         </div>
-                        <p>In our restaurant with people who are important to you, conversations that bring you
-                            closer to each other and those who enjoy our dishes. Traditional dishes with local
-                            products of highest quality.</p>
-                        <div class="pr-wrap style2">
-                            <div class="pr-item">
-                                <h4><i class="flaticon-check-box-with-check-sign"></i>This Is All About Caban
-                                </h4>
-                                <p>Сhoose food and pay for the order in a couple of clicks online also
-                                    choose you current location using GPS</p>
-                            </div>
-                            <div class="pr-item">
-                                <h4><i class="flaticon-check-box-with-check-sign"></i>This Is Followed by
-                                    Quality
-                                </h4>
-                                <p>Follow the status of your order in real time and also track the delivery path
-                                    until you get it.</p>
-                            </div>
-                        </div>
+                        <p><?php echo $row['text'] ?></p>                        
                     </div>
                 </div>
             </div>

@@ -46,9 +46,13 @@
                                             <a class="active" href="index.php">Начало</a>
                                         </li>
                                         <li class="has-children">
-                                            <a href="about.php">За нас</a>                                        </li>
+                                            <a href="about.php">За нас</a>    
+                                        </li>                                    
                                         <li class="has-children">
                                             <a href="menu.php">Меню</a>
+                                        </li>
+                                        <li class="has-children">
+                                            <a href="reservation.php">Резервация</a>
                                         </li>
                                         <li class="has-children"><a href="gallery.php">Галерия</a>
                                         </li>
@@ -58,8 +62,6 @@
                                 </div>
                             </div>
                             <div class="mobile-bar-wrap">
-                               
-                             
                                 <div class="mobile-menu xl-none">
                                     <a href="javascript:void(0)"><i class="las la-bars"></i></a>
                                 </div>

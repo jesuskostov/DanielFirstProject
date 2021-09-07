@@ -1,6 +1,9 @@
 <?php include 'components/nav.php' ?> 
-
-
+<?php include_once 'php/connection.php' ?>
+<?php
+    $result = $mysqli->query("SELECT * FROM intro") or die($mysqli->error);
+    $row = $result->fetch_assoc();
+?>
         <section class="hero-wrap style1 bg-cod-grey">
             <img src="assets/img/hero/hero-shape-1.png" alt="Image" class="hero-shape-1">
             <img src="assets/img/hero/hero-shape-2.png" alt="Image" class="hero-shape-2">
@@ -9,8 +12,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="hero-content">
-                            <h1>Винаги вкусна и прясна храна</h1>
-                            <p>Правим поръчки за вкъщи.</p>
+                            <h1><?php echo $row['title'] ?></h1>
+                            <p><?php echo $row['subtitle'] ?></p>
                             <div class="hero-btn">
                                 <a href="shop-left-sidebar.html" class="btn style1"><i class="las la-shopping-bag"></i>Виж нашето меню</a>
                             </div>
@@ -24,7 +27,6 @@
                 </div>
             </div>
         </section>
-
 
         <section class="about-wrap style1 ptb-100">
             <div class="container">
@@ -42,23 +44,22 @@
                         <div class="about-content">
                             <div class="content-title style2 mb-15">
                                 <span>
-</span>
-                                <h2>Примерен текст</h2>
+                                </span>
+                                <h2>Ние сме</h2>
                             </div>
-                            <p>Още примерен текст</p>
+                            <p>Още примерен текст Още примерен текст Още примерен текст Още примерен текст</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-
         <section class="service-wrap bg-f service-bg-1 pt-100 pb-75">
             <div class="overlay op-7 bg-white"></div>
             <div class="container">
                 <div class="section-title style1 text-center mb-110">
                     <span>
-</span>
+                    </span>
                     <h2> Нашите предимства</h2>
                 </div>
                 <div class="row">
@@ -112,10 +113,10 @@
             <img src="assets/img/shape-2.png" alt="Iamge" class="contact-shape-2 lg-none">
             <div class="section-title style6 text-center mb-40">
                 <span class="text-sunshade">
-<img src="assets/img/secion-shape-1.png" alt="Image">
-Contact Us
-<img src="assets/img/secion-shape-2.png" alt="Image">
-</span>
+                    <img src="assets/img/secion-shape-1.png" alt="Image">
+                    Contact Us
+                    <img src="assets/img/secion-shape-2.png" alt="Image">
+                </span>
                 <h2 class="text-white">Not Sure What To Order? <br> Contact Us Now</h2>
             </div>
             <div class="container pos-rel">
